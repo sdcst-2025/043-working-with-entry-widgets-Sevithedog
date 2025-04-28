@@ -14,6 +14,9 @@ def run(event):
     name = entryn.get()
     number = entrynum.get()
     grade = entrygr.get()
+    infentry.delete(0,tk.END)
+    infentry.insert(0,f"Name: {name}, Grade: {grade}, Id: {number}")
+
 
 
 
@@ -25,7 +28,10 @@ entrynum = tk.Entry(window)
 gradelb = tk.Label(window, text = "Enter student grade")
 entrygr = tk.Entry(window)
 studentlb = tk.Label(window, text = "Student information:")
-entryinf = tk.Entry(window)
+infentry = tk.Entry(window)
+submit = tk.Button(window, text = "Submit")
+submit.bind("<Button>", run)
+
 
 
 
@@ -33,5 +39,12 @@ namelb.pack()
 entryn.pack()
 numberlb.pack()
 entrynum.pack()
+gradelb.pack()
+entrygr.pack()
+submit.pack()
+studentlb.pack()
+infentry.pack()
+
+
 
 window.mainloop()
